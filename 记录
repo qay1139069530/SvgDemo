@@ -1,0 +1,53 @@
+M/m命令：moveto移动到绘制点，后面跟上坐标系点对即可。
+Z/z命令：closepath一段路径等的闭合点，无参数。
+L/l命令：lineto绘制一个点到另一个点的直线，多个坐标对可以绘制折线，后面跟上坐标系点对即可。
+H/h命令：lineto从当前点到指定x点绘制水平直线，多个x无意义，后面跟坐标系x点即可。
+V/v命令：lineto从当前点到指定x点绘制垂直直线，多个y无意义，后面跟坐标系y点即可。
+C/c命令：cubic bezier三次贝塞尔曲线。
+S/s命令：cubic bezier三次贝塞尔曲线。
+Q/q命令：quatratic bezier二次贝塞尔曲线。
+T/t命令：quatratic bezier二次贝塞尔曲线。
+A/a命令：elliptical arc圆弧线。
+
+<vector>, <group>, <clip-path>, 和<path> 元素都有各自可以播放动画的属性，
+查阅VectorDrawable JavaDocs你会找到每种元素到底有那些属性，
+以便针对这些属性播放特定的动画。
+path
+android:name 定义该 path 的名字，这样在其他地方可以通过名字来引用这个路径
+android:pathData 和 SVG 中 d 元素一样的路径信息。
+android:fillColor 定义填充路径的颜色，如果没有定义则不填充路径
+android:strokeColor 定义如何绘制路径边框，如果没有定义则不显示边框
+android:strokeWidth 定义路径边框的粗细尺寸
+android:strokeAlpha 定义路径边框的透明度
+android:fillAlpha 定义填充路径颜色的透明度
+android:trimPathStart 从路径起始位置截断路径的比率，取值范围从 0 到1
+android:trimPathEnd 从路径结束位置截断路径的比率，取值范围从 0 到1
+android:trimPathOffset 设置路径截取的范围，取值范围从 0 到1
+android:strokeLineCap 设置路径线帽的形状，取值为 butt, round, square.
+android:strokeLineJoin 设置路径交界处的连接方式，取值为 miter,round,bevel.
+android:strokeMiterLimit 设置斜角的上限
+
+**group **：主要是用来设置路径做动画的关键属性的
+android:name 定义 group 的名字
+android:rotation 定义该 group 的路径旋转多少度
+android:pivotX 定义缩放和旋转该 group 时候的 X 参考点。该值相对于 vector 的 viewport 值来指定的。
+android:pivotY 定义缩放和旋转该 group 时候的 Y 参考点。该值相对于 vector 的 viewport 值来指定的。
+android:scaleX 定义 X 轴的缩放倍数
+android:scaleY 定义 Y 轴的缩放倍数
+android:translateX 定义移动 X 轴的位移。相对于 vector 的 viewport 值来指定的。
+android:translateY 定义移动 Y 轴的位移。相对于 vector 的 viewport 值来指定的。
+
+clip-path：定义当前绘制的剪切路径。注意，clip-path 只对当前的 group 和子 group 有效
+android:name 定义 clip path 的名字
+android:pathData 和 android:pathData 的取值一样。
+
+vector：定义这个矢量图
+android:name 定义该drawable的名字
+android:width 定义该 drawable 的内部(intrinsic)宽度,支持所有 Android 系统支持的尺寸，通常使用 dp
+android:height 定义该 drawable 的内部(intrinsic)高度,支持所有 Android 系统支持的尺寸，通常使用 dp
+android:viewportWidth 定义矢量图视图的宽度，视图就是矢量图 path 路径数据所绘制的虚拟画布
+android:viewportHeight 定义矢量图视图的高度，视图就是矢量图 path 路径数据所绘制的虚拟画布
+android:tint 定义该 drawable 的 tint 颜色。默认是没有 tint 颜色的
+android:tintMode 定义 tint 颜色的 Porter-Duff blending 模式，默认值为 src_in
+android:autoMirrored 设置当系统为 RTL (right-to-left) 布局的时候，是否自动镜像该图片。比如 阿拉伯语。
+android:alpha 该图片的透明度属性

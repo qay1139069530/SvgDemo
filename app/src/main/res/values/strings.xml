@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">SvgDemo</string>
+
+    <string name="tv01">&#xe67b;</string>
+    <string name="tv02">&#xe658;</string>
+    <string name="tv03">&#xe657;</string>
+
+
+</resources>
